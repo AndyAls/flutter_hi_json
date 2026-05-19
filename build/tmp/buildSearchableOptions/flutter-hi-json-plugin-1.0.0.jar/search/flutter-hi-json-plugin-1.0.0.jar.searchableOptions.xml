@@ -1,0 +1,47 @@
+<options>
+  <configurable id="preferences.keymap" configurable_name="Keymap">
+    <option name="flutter" path="ActionManager" hit="Flutter Hi Json" />
+    <option name="hi" path="ActionManager" hit="Flutter Hi Json" />
+    <option name="json" path="ActionManager" hit="Flutter Hi Json" />
+    <option name="class" path="ActionManager" hit="Generate Dart entity class from JSON" />
+    <option name="dart" path="ActionManager" hit="Generate Dart entity class from JSON" />
+    <option name="entity" path="ActionManager" hit="Generate Dart entity class from JSON" />
+    <option name="from" path="ActionManager" hit="Generate Dart entity class from JSON" />
+    <option name="generate" path="ActionManager" hit="Generate Dart entity class from JSON" />
+    <option name="json" path="ActionManager" hit="Generate Dart entity class from JSON" />
+  </configurable>
+  <configurable id="com.hijson.flutter.plugin.config.PluginSettingsConfigurable" configurable_name="Flutter Hi Json">
+    <option name="checkbox" hit="Default checkbox states:" />
+    <option name="default" hit="Default checkbox states:" />
+    <option name="states" hit="Default checkbox states:" />
+    <option name="dialog" hit="Dialog Title:" />
+    <option name="title" hit="Dialog Title:" />
+    <option name="flutter" hit="Flutter Hi Json" />
+    <option name="hi" hit="Flutter Hi Json" />
+    <option name="json" hit="Flutter Hi Json" />
+    <option name="prompt" hit="Prompt Text:" />
+    <option name="text" hit="Prompt Text:" />
+    <option name="by" hit="copyWith checked by default" />
+    <option name="checked" hit="copyWith checked by default" />
+    <option name="copywith" hit="copyWith checked by default" />
+    <option name="default" hit="copyWith checked by default" />
+    <option name="by" hit="default value selected by default" />
+    <option name="default" hit="default value selected by default" />
+    <option name="selected" hit="default value selected by default" />
+    <option name="value" hit="default value selected by default" />
+    <option name="by" hit="nullable selected by default" />
+    <option name="default" hit="nullable selected by default" />
+    <option name="nullable" hit="nullable selected by default" />
+    <option name="selected" hit="nullable selected by default" />
+    <option name="by" hit="toString checked by default" />
+    <option name="checked" hit="toString checked by default" />
+    <option name="default" hit="toString checked by default" />
+    <option name="tostring" hit="toString checked by default" />
+    <option name="by" hit="use JsonKey.name checked by default" />
+    <option name="checked" hit="use JsonKey.name checked by default" />
+    <option name="default" hit="use JsonKey.name checked by default" />
+    <option name="jsonkey" hit="use JsonKey.name checked by default" />
+    <option name="name" hit="use JsonKey.name checked by default" />
+    <option name="use" hit="use JsonKey.name checked by default" />
+  </configurable>
+</options>
