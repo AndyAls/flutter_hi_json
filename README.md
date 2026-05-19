@@ -2,6 +2,10 @@
 
 An IntelliJ IDEA / Android Studio plugin that converts JSON data into Dart entity classes with `json_serializable` annotations.
 
+## ScreenShort
+
+![screenshort](hijson.png)
+
 ## Features
 
 - **Right-click to generate**: Right-click any directory → New → Flutter Hi Json
@@ -86,7 +90,7 @@ Go to **Settings → Tools → Flutter Hi Json** to customize:
 
 ## Installation
 
-1. Download `flutter-hi-json-plugin-1.0.0.zip` from the [Releases](https://github.com/hijson/flutter-hi-json/releases) page
+1. Download `flutter-hi-json-plugin-1.0.0.zip` from the [Releases](https://github.com/AndyAls/flutter_hi_json/releases) page
 2. Open IntelliJ IDEA / Android Studio
 3. Go to **Settings → Plugins → ⚙️ → Install Plugin from Disk**
 4. Select the downloaded zip file
@@ -182,7 +186,7 @@ class User {
 
 ## 安装方式
 
-1. 从 [Releases](https://github.com/hijson/flutter-hi-json/releases) 页面下载 `flutter-hi-json-plugin-1.0.0.zip`
+1. 从 [Releases](https://github.com/AndyAls/flutter_hi_json/releases) 页面下载 `flutter-hi-json-plugin-1.0.0.zip`
 2. 打开 IntelliJ IDEA / Android Studio
 3. 进入 **Settings → Plugins → ⚙️ → Install Plugin from Disk**
 4. 选择下载的 zip 文件
