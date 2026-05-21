@@ -28,6 +28,8 @@ intellijPlatform {
         ideaVersion {
             sinceBuild = "223"
         }
+        description = file("src/main/resources/META-INF/description.html").readText()
+        changeNotes = file("src/main/resources/META-INF/changelog.html").readText()
     }
 
     signing {
@@ -40,6 +42,7 @@ intellijPlatform {
         token = System.getenv("PUBLISH_TOKEN")
     }
 }
+
 
 kotlin {
     jvmToolchain(21)

@@ -6,6 +6,12 @@
     <depends>com.intellij.modules.platform</depends>
     <depends>org.jetbrains.plugins.terminal</depends>
 
+    <description><![CDATA[
+    ]]></description>
+
+    <change-notes><![CDATA[
+    ]]></change-notes>
+
     <extensions defaultExtensionNs="com.intellij">
         <notificationGroup id="Flutter Hi Json" displayType="BALLOON"/>
         <projectService serviceImplementation="com.hijson.flutter.plugin.config.PluginSettings"/>
