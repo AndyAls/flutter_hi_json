@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.andy.hijson.flutter"
-version = "1.0.0"
+version = "1.0.1"
 
 repositories {
     mavenCentral()
@@ -28,15 +28,6 @@ intellijPlatform {
         ideaVersion {
             sinceBuild = "223"
         }
-        changeNotes = """
-            <h2>1.0.0</h2>
-            <ul>
-                <li>Initial release: JSON to Dart entity class generation</li>
-                <li>Support for json_serializable annotations</li>
-                <li>Configurable nullable, defaultValue, and JsonKey.name options</li>
-                <li>JSON tree view</li>
-            </ul>
-        """.trimIndent()
     }
 
     signing {

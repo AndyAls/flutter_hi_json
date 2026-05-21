@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Description</title>
+</head>
+<body>
+<h2>Flutter Hi Json</h2>
+<p>An IntelliJ IDEA / Android Studio plugin that converts JSON data into Dart entity classes with json_serializable annotations.</p>
+
+<h3>Features</h3>
+<ul>
+    <li><strong>Right-click to generate</strong>: Right-click any directory → New → Flutter Hi Json</li>
+    <li><strong>Live preview</strong>: See the generated Dart class as you configure options</li>
+    <li><strong>JSON tree view</strong>: Inspect JSON structure with a collapsible tree (Format Only)</li>
+    <li><strong>Configurable options</strong>:
+        <ul>
+            <li><code>nullable</code> — types use ? suffix, no required in constructor</li>
+            <li><code>default value</code> — adds @JsonKey(defaultValue: ...) based on type, required in constructor</li>
+            <li><code>use JsonKey.name</code> — all fields annotated with @JsonKey(name: 'original_key')</li>
+        </ul>
+    </li>
+    <li><strong>JSON validation</strong>: English error messages for invalid JSON</li>
+    <li><strong>Auto build_runner</strong>: Runs dart run build_runner build --delete-conflicting-outputs after generation</li>
+    <li><strong>Nested object support</strong>: Automatically generates nested Dart classes</li>
+    <li><strong>Customizable settings</strong>: Dialog title and prompt text configurable in Settings → Tools → Flutter Hi Json</li>
+</ul>
+
+<h3>Usage</h3>
+<ol>
+    <li>Right-click on a directory in the Project view</li>
+    <li>Select <strong>New → Flutter Hi Json</strong></li>
+    <li>Paste your JSON data in the left editor</li>
+    <li>Click <strong>Format</strong> to preview the generated Dart class, or <strong>Format Only</strong> to view the JSON tree</li>
+    <li>Enter a class name (auto-converted to UpperCamelCase)</li>
+    <li>Configure options (nullable / default value / use JsonKey.name)</li>
+    <li>Click <strong>OK</strong> to generate the .dart file and run build_runner</li>
+</ol>
+
+<h3>Settings</h3>
+<p>Go to <strong>Settings → Tools → Flutter Hi Json</strong> to customize:</p>
+
+<h3>Requirements</h3>
+<ul>
+    <li>IntelliJ IDEA 2022.3+ or Android Studio Giraffe 2022.3+</li>
+    <li>Flutter project with json_serializable and build_runner as dev dependencies</li>
+</ul>
+
+<h3>Installation</h3>
+<ol>
+    <li>Download flutter-hi-json-plugin-1.0.0.zip from the Releases page</li>
+    <li>Open IntelliJ IDEA / Android Studio</li>
+    <li>Go to <strong>Settings → Plugins → ⚙️ → Install Plugin from Disk</strong></li>
+    <li>Select the downloaded zip file</li>
+    <li>Restart the IDE</li>
+</ol>
+
+<hr/>
+
+<h2>Flutter Hi Json（中文）</h2>
+<p>一款 IntelliJ IDEA / Android Studio 插件，将 JSON 数据转化为基于 json_serializable 的 Dart 实体类。</p>
+
+<h3>功能特性</h3>
+<ul>
+    <li><strong>右键生成</strong>：在项目目录右键 → New → Flutter Hi Json</li>
+    <li><strong>实时预览</strong>：配置选项时即时预览生成的 Dart 类</li>
+    <li><strong>JSON 树状视图</strong>：通过可折叠树查看 JSON 结构（Format Only 模式）</li>
+    <li><strong>可配置选项</strong>：
+        <ul>
+            <li><code>nullable</code> — 属性可空，构造函数不使用 required</li>
+            <li><code>default value</code> — 根据字段类型自动添加 @JsonKey(defaultValue: ...)，构造函数使用 required</li>
+            <li><code>use JsonKey.name</code> — 所有字段添加 @JsonKey(name: '原始键名') 注解</li>
+        </ul>
+    </li>
+    <li><strong>JSON 校验</strong>：无效 JSON 时弹出英文错误提示</li>
+    <li><strong>自动执行 build_runner</strong>：生成文件后自动运行 dart run build_runner build --delete-conflicting-outputs</li>
+    <li><strong>支持嵌套对象</strong>：自动生成嵌套 Dart 类</li>
+    <li><strong>可自定义设置</strong>：在 Settings → Tools → Flutter Hi Json 中配置弹窗标题和提示文案</li>
+</ul>
+
+<h3>使用方法</h3>
+<ol>
+    <li>在项目视图中右键点击目标目录</li>
+    <li>选择 <strong>New → Flutter Hi Json</strong></li>
+    <li>在左侧编辑器粘贴 JSON 数据</li>
+    <li>点击 <strong>Format</strong> 预览生成的 Dart 类，或点击 <strong>Format Only</strong> 查看 JSON 树状结构</li>
+    <li>输入类名（自动转为大驼峰命名）</li>
+    <li>配置选项（nullable / default value / use JsonKey.name）</li>
+    <li>点击 <strong>OK</strong> 生成 .dart 文件并自动运行 build_runner</li>
+</ol>
+
+<h3>设置项</h3>
+<p>在 <strong>Settings → Tools → Flutter Hi Json</strong> 中可自定义：</p>
+
+<h3>环境要求</h3>
+<ul>
+    <li>IntelliJ IDEA 2022.3+ 或 Android Studio Giraffe 2022.3+</li>
+    <li>Flutter 项目，需在 pubspec.yaml 中添加 json_serializable 和 build_runner 开发依赖</li>
+</ul>
+
+<h3>安装方式</h3>
+<ol>
+    <li>从 Releases 页面下载 flutter-hi-json-plugin-1.0.0.zip</li>
+    <li>打开 IntelliJ IDEA / Android Studio</li>
+    <li>进入 <strong>Settings → Plugins → ⚙️ → Install Plugin from Disk</strong></li>
+    <li>选择下载的 zip 文件</li>
+    <li>重启 IDE</li>
+</ol>
+
+</body>
+</html>

@@ -1,28 +1,7 @@
 <idea-plugin>
     <id>com.hijson.flutter.plugin</id>
     <name>Flutter Hi Json</name>
-    <vendor url="https://github.com/hijson/flutter-hi-json">HiJson</vendor>
-
-    <description><![CDATA[
-        <h2>Flutter Hi Json</h2>
-        <p>Convert JSON data into Dart entity classes with json_serializable annotations.</p>
-        <h3>Features</h3>
-        <ul>
-            <li>Generate Dart entity classes from JSON with a right-click</li>
-            <li>Real-time preview of generated code</li>
-            <li>JSON tree view for structure inspection</li>
-            <li>Configurable options: nullable, defaultValue, JsonKey.name</li>
-            <li>JSON validation with English error messages</li>
-            <li>Auto-run build_runner after generation</li>
-        </ul>
-        <h3>Usage</h3>
-        <ol>
-            <li>Right-click on a directory in the project view</li>
-            <li>Select New → Flutter Hi Json</li>
-            <li>Paste your JSON and configure options</li>
-            <li>Click OK to generate the Dart file</li>
-        </ol>
-    ]]></description>
+    <vendor url="https://github.com/AndyAls/flutter_hi_json">HiJson</vendor>
 
     <depends>com.intellij.modules.platform</depends>
     <depends>org.jetbrains.plugins.terminal</depends>
