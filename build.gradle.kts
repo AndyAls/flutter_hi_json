@@ -1,11 +1,11 @@
+import org.jetbrains.intellij.platform.gradle.IntelliJPlatformType
+import org.jetbrains.intellij.platform.gradle.tasks.VerifyPluginTask
+
 plugins {
     id("java")
     id("org.jetbrains.kotlin.jvm") version "1.9.22"
     id("org.jetbrains.intellij.platform") version "2.10.5"
 }
-
-import org.jetbrains.intellij.platform.gradle.IntelliJPlatformType
-import org.jetbrains.intellij.platform.gradle.tasks.VerifyPluginTask
 
 group = "com.andy.hijson.flutter"
 version = "1.0.2"
