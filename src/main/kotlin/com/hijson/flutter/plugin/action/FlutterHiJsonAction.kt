@@ -1,7 +1,7 @@
 package com.hijson.flutter.plugin.action
 
 import com.hijson.flutter.plugin.ui.HiJsonDialogWrapper
-import com.intellij.notification.NotificationGroupManager
+import com.intellij.notification.Notification
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
@@ -13,7 +13,6 @@ import com.intellij.openapi.progress.Task
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.LocalFileSystem
 import com.intellij.openapi.vfs.VirtualFile
-import org.jetbrains.plugins.terminal.TerminalView
 import java.io.File
 
 class FlutterHiJsonAction : AnAction() {
@@ -127,15 +126,18 @@ class FlutterHiJsonAction : AnAction() {
     }
 
     private fun openTerminalAndRunBuildRunner(project: Project, projectRoot: File) {
+        val command = "dart run build_runner build --delete-conflicting-outputs"
+        val workingDirectory = projectRoot.absolutePath
         try {
-            val terminalView = TerminalView.getInstance(project)
-            val widget = terminalView.createLocalShellWidget(
-                projectRoot.absolutePath,
-                "Build Runner"
-            )
-            widget.executeCommand(
-                "dart run build_runner build --delete-conflicting-outputs"
-            )
+            // Preferred path (IntelliJ 2025.2+): run the command in a new terminal
+            // tab via the non-deprecated TerminalToolWindowManager API.
+            if (runCommandInNewTerminalApi(project, workingDirectory, command)) {
+                return
+            }
+            // Fallback for older IDEs: classic TerminalView API. Accessed reflectively
+            // because the class is deprecated for removal in recent IntelliJ versions
+            // and a compile-time reference is reported by the plugin verification.
+            runCommandInClassicTerminalApi(project, workingDirectory, command)
         } catch (e: Exception) {
             showNotification(
                 project,
@@ -145,13 +147,54 @@ class FlutterHiJsonAction : AnAction() {
         }
     }
 
+    /**
+     * Runs [command] in a new terminal tab using TerminalToolWindowManager
+     * (available since IntelliJ 2025.2). Returns false when the API is not
+     * available so the caller can fall back to the classic terminal API.
+     */
+    private fun runCommandInNewTerminalApi(project: Project, workingDirectory: String, command: String): Boolean {
+        return try {
+            val managerClass = Class.forName("org.jetbrains.plugins.terminal.TerminalToolWindowManager")
+            val manager = managerClass.getMethod("getInstance", Project::class.java).invoke(null, project)
+            managerClass.getMethod(
+                "createNewSession",
+                String::class.java,
+                String::class.java,
+                List::class.java,
+                java.lang.Boolean.TYPE,
+                java.lang.Boolean.TYPE,
+            ).invoke(manager, workingDirectory, "Build Runner", listOf(command), true, false)
+            true
+        } catch (e: ClassNotFoundException) {
+            false
+        } catch (e: NoSuchMethodException) {
+            false
+        }
+    }
+
+    /**
+     * Runs [command] in a new terminal tab using the classic TerminalView API.
+     * Uses reflection to avoid a compile-time reference to the deprecated class.
+     */
+    private fun runCommandInClassicTerminalApi(project: Project, workingDirectory: String, command: String) {
+        val terminalView = Class.forName("org.jetbrains.plugins.terminal.TerminalView")
+            .getMethod("getInstance", Project::class.java)
+            .invoke(null, project)
+        val widget = terminalView.javaClass
+            .getMethod("createLocalShellWidget", String::class.java, String::class.java)
+            .invoke(terminalView, workingDirectory, "Build Runner")
+        widget.javaClass
+            .getMethod("executeCommand", String::class.java)
+            .invoke(widget, command)
+    }
+
 
     private fun showNotification(project: Project, content: String, type: NotificationType) {
         ApplicationManager.getApplication().invokeLater {
-            NotificationGroupManager.getInstance()
-                .getNotificationGroup("Flutter Hi Json")
-                .createNotification(content, type)
-                .notify(project)
+            // New Notification API (IntelliJ 2023.1+): the group is resolved via its
+            // identifier registered as the com.intellij.notificationGroup extension.
+            // NotificationGroupManager / NotificationGroup.createNotification are obsolete.
+            Notification("Flutter Hi Json", content, type).notify(project)
         }
     }
 }

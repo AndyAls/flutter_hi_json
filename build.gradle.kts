@@ -4,8 +4,11 @@ plugins {
     id("org.jetbrains.intellij.platform") version "2.10.5"
 }
 
+import org.jetbrains.intellij.platform.gradle.IntelliJPlatformType
+import org.jetbrains.intellij.platform.gradle.tasks.VerifyPluginTask
+
 group = "com.andy.hijson.flutter"
-version = "1.0.1"
+version = "1.0.2"
 
 repositories {
     mavenCentral()
@@ -41,6 +44,27 @@ intellijPlatform {
     publishing {
         token = System.getenv("PUBLISH_TOKEN")
     }
+
+    // Plugin verification against the oldest and newest supported IDE builds.
+    // Run with: ./gradlew verifyPlugin
+    pluginVerification {
+        ides {
+            // Compatibility floor (sinceBuild = 223)
+            ide(IntelliJPlatformType.IntellijIdeaCommunity, "2022.3")
+            // Latest IntelliJ IDEA 2026.3 EAP line
+            ide(IntelliJPlatformType.IntellijIdeaUltimate, "263.6800.24")
+        }
+    }
+}
+
+// The IntelliJ Plugin Verifier caches extracted plugins under ~/.pluginVerifier by
+// default. Redirect it into the build directory so verification also works when the
+// home directory is not writable (sandboxed environments, some CI runners).
+tasks.withType<VerifyPluginTask>().configureEach {
+    systemProperty(
+        "plugin.verifier.home.dir",
+        layout.buildDirectory.dir("pluginVerifierHome").get().asFile.absolutePath,
+    )
 }
 
 

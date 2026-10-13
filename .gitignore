@@ -18,3 +18,4 @@ build/tests/
 # 缓存
 *.tmp
 *.bak
+/.workbuddy/
